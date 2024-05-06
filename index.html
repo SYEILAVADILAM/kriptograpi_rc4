@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Shoddy Frosty Louse</title>
+  <meta property="og:title" content="Shoddy Frosty Louse" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div>
+    <div id="Section-1" class="container" style="display: block;">
+      <div class="text">
+        Encrypt Decrypt Tool With RC4
+      </div>
+      <form action="#" id="forms">
+        <div class="form-label">
+          <label for="">Please Select what you want :</label>
+        </div>
+        <div class="form-row submit-btn">
+          <div class="input-data">
+            <div class="inner"></div>
+            <input id="encrypt_now" type="button" value="Encrypt">
+          </div>
+          <div class="input-data">
+            <div class="inner"></div>
+            <input id="decrypt_now" type="button" value="Decrypt">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="Section-2" class="container" style="display: none;">
+      <div class="text">
+        Encrypt Decrypt Tool With RC4
+      </div>
+      <form action="#" id="forms_encrypt">
+        <div class="form-row">
+          <div class="input-data textarea">
+            <textarea id="messageToEncrypt" rows="8" cols="80" required name="message"></textarea>
+            <br />
+            <div class="underline"></div>
+            <label for="">Write your message To Encrypt</label>
+            <br />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-data">
+            <input id="encryptkey" type="text" name="Password" required>
+            <div class="underline"></div>
+            <label for="">Passkey</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-data textarea">
+            <textarea id="encryptedText" rows="8" cols="80" required name="encryptedText"></textarea>
+            <br />
+            <div class="underline"></div>
+            <label for="">Output</label>
+            <br />
+          </div>
+        </div>
+        <div class="form-row submit-btn">
+          <div class="input-data">
+            <div class="inner"></div>
+            <input id="encrypt_button" type="button" value="Encrypt">
+          </div>
+          <div class="input-data">
+            <div class="inner"></div>
+            <input id="back" type="button" value="Back">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="Section-3" class="container" style="display: none;">
+      <div class="text">
+        Encrypt Decrypt Tool With RC4
+      </div>
+      <form action="#" id="forms_decrypt">
+        <div class="form-row">
+          <div class="input-data textarea">
+            <textarea id="messageTodecrypt" rows="8" cols="80" required name="messageTodecrypt"></textarea>
+            <br />
+            <div class="underline"></div>
+            <label for="">Insert the encrypted message</label>
+            <br />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-data">
+            <input id="decryptkey" type="text" name="decryptkey" required>
+            <div class="underline"></div>
+            <label for="">passkey</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-data textarea">
+            <textarea id="decryptedText" rows="8" cols="80" required name="decryptedText"></textarea>
+            <br />
+            <div class="underline"></div>
+            <label for="">Output</label>
+            <br />
+          </div>
+        </div>
+        <div class="form-row submit-btn">
+          <div class="input-data">
+            <div class="inner"></div>
+            <input id="decrypt_button" type="button" value="Decrypt">
+          </div>
+          <div class="input-data">
+            <div class="inner"></div>
+            <input id="back_2" type="button" value="Back">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="RC4.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Close the form and hide the overlay
+      $('#encrypt_now').on('click', function () {
+        $("#Section-1").fadeOut();
+        $(".overlay").fadeOut();
+        $("#Section-2").fadeIn();
+        $(".overlay").fadeIn();
+      });
+      $('#decrypt_now').on('click', function () {
+        $("#Section-1").fadeOut();
+        $(".overlay").fadeOut();
+        $("#Section-3").fadeIn();
+        $(".overlay").fadeIn();
+      });
+      $('#back').on('click', function () {
+        $("#Section-2").fadeOut();
+        $(".overlay").fadeOut();
+        $("#Section-1").fadeIn();
+        $(".overlay").fadeIn();
+        $("#forms_encrypt")[0].reset(); // Reset the form
+      });
+      $('#back_2').on('click', function () {
+        $("#Section-3").fadeOut();
+        $(".overlay").fadeOut();
+        $("#Section-1").fadeIn();
+        $(".overlay").fadeIn();
+        $("#forms_decrypt")[0].reset(); // Reset the form
+      });
+    });
+  </script>
+
+</body>
+</html>
